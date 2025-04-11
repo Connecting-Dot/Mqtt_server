@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Intangles_AWS_EC2]
 
     steps:
       - name: Say Hello
