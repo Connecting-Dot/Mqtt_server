@@ -11,8 +11,5 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v4
-
       - name: Say Hello
         run: echo Hello
