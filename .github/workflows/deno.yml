@@ -1,4 +1,4 @@
-name: Hello
+name: Basic Workflow
 
 on:
   push:
@@ -7,9 +7,19 @@ on:
     branches: ["main"]
 
 jobs:
-  test:
-    runs-on: [self-hosted, Intangles_AWS_EC2]
+  build:
+    runs-on: self-hosted [self-hosted, Linux, X64]
 
     steps:
-      - name: Say Hello
-        run: echo Hello
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
